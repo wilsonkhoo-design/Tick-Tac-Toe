@@ -1,0 +1,22 @@
+// Simple Tick Tack Toe game
+
+#include <iostream>
+#include <string>
+#include <iterator>
+#include <cmath>
+
+using namespace std;
+int board [3][3];
+
+void print_board(){
+    for(int j=0; j<size(board);j++){
+        for(int i =0; i<size(board[i]);i++ ){
+        cout<<board[j][i];
+        }
+        cout<<"\n";
+    }
+    
+}
+int main(){
+    print_board();
+}
