@@ -12,7 +12,8 @@ char board[3][3] = {
     {'7', '8', '9'}
 };
 
-int RoundTurn;
+int RoundTurn=0;
+int num=0;
 bool Player=true;
 bool gameWin= false;
 
@@ -52,14 +53,14 @@ int playerChoice(){
     return choice;
 }
 
-void placingChoice(int placement){
+void placingChoice(int &num){
     int compare;
         for(int j=0; j<size(board);j++){
             for(int i =0; i<size(board[i]);i++ ){
                 //changing the data type from char to int to compare values
                 compare = board[j][i]-'0';
                 
-                if((placement)==compare){
+                if((num)==compare){
                     if(!Player)
                     board[j][i]='X';
                     else
@@ -73,7 +74,7 @@ void placingChoice(int placement){
     
 }
 int main(){
-    int num=0;
+    
     while(!gameWin){
     print_board();
     num=playerChoice();
