@@ -12,6 +12,9 @@ int board[3][3] = {
     {7, 8, 9}
 };
 
+int RoundTurn;
+bool Player=true;
+
 void print_board(){
     for(int j=0; j<size(board);j++){
         for(int i =0; i<size(board[i]);i++ ){
@@ -19,17 +22,36 @@ void print_board(){
         if(i<2)
             cout<<"|";
         }
-        
         cout<<"\n";
         if(j<2)
             cout<<"------\n";
-        
-        
+ 
     }
     
 }
 
+int playerChoice(){
+    int choice=0;
+    //X Turn
+    if (Player == true){
+    cout<<"Player 1: X \nit is your turn please choose a spot to place:\n";
+    }
+    
+    //O Turn
+    else{
+    cout<<"Player 2: O \nit is your turn please choose a spot to place:\n";
+    }
+    
+    cin>>choice;
+    while(choice<1 || choice>9){
+        cout<<"Not an option, Please Try again!\n";
+        cin>>choice;
+    }
+    Player = !Player;
+    return choice;
+}
 
 int main(){
     print_board();
+    playerChoice();
 }
