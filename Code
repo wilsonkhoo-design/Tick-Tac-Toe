@@ -31,6 +31,21 @@ void print_board(){
     }
     
 }
+bool validPlacement(int k){
+    int compare;
+    for(int j=0; j<size(board);j++){
+            for(int i =0; i<size(board[i]);i++ ){
+                //char to int to compare values
+                compare = board[j][i]-'0';
+                if((k)==compare){
+                    // it is a valid placement because there is a number in the spot
+                    return true;
+                }
+            }
+    }
+    //Not a valid placement because its occupied by 'X' or 'O'
+    return false;
+}
 
 int playerChoice(){
     int choice=0;
@@ -45,7 +60,9 @@ int playerChoice(){
     }
     
     cin>>choice;
-    while(choice<1 || choice>9 ){
+    while(choice<1 || choice>9 ||!validPlacement(choice) ){
+        
+        
         cout<<"Not an option, Please Try again!\n";
         cin>>choice;
     }
@@ -65,14 +82,14 @@ void placingChoice(int &num){
                     board[j][i]='X';
                     else
                     board[j][i]='O';
-                
                 }
             }
         }
-        
-                
-    
+
 }
+
+
+
 int main(){
     
     while(!gameWin){
